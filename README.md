@@ -1,5 +1,11 @@
 # Eksamen PGR301 2023
 
+Litt deploymentproblemer:
+Resource handler returned message: "null (Service: S3, Status Code: 0, Request ID: null)" (RequestToken: e75e6e91-4738-10c7-56bd-9cc969a4184b, HandlerErrorCode: AlreadyExists)
+Endret derfor navn på bucketen - S3Bucket var ikke originalt nok (surprise).
+
+
+
 ## Krav til leveransen
 
 * Eksamensoppgaven, kode og nødvendig filer er tilgjengelig i GitHub-repo: https://github.com/glennbechdevops/eksamen_2023.
