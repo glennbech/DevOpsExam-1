@@ -12,11 +12,15 @@ import os
 #
 # Hilsen Kjell
 
+
+
 s3_client = boto3.client('s3', region_name='eu-west-1')
 rekognition_client = boto3.client('rekognition', region_name='eu-west-1')
 
-# Oppgave 1A
-BUCKET_NAME = "kjellsimagebucker"
+try:
+    BUCKET_NAME = os.environ['BUCKET_NAME']
+except KeyError:
+    raise ValueError("Provide the environment variable <BUCKET_NAME>.")
 
 def lambda_handler(event, context):
 
