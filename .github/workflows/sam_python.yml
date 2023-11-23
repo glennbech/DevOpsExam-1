@@ -1,7 +1,7 @@
 name: SAM Build, Python
-on: 
-  push: 
-    branches: [main]
+
+on: [push]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -23,3 +23,10 @@ jobs:
     - name: Build SAM Application
       run: sam build --use-container
       working-directory: ./kjell
+
+    - name: Deploy SAM Application
+      if: github.ref == 'refs/heads/main'
+      run: sam deploy
+      working-directory: ./kjell
+
+
