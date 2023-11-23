@@ -2,8 +2,7 @@
 
 Litt deploymentproblemer:
 Resource handler returned message: "null (Service: S3, Status Code: 0, Request ID: null)" (RequestToken: e75e6e91-4738-10c7-56bd-9cc969a4184b, HandlerErrorCode: AlreadyExists)
-Endret derfor navn på bucketen - S3Bucket var ikke originalt nok (surprise).
-
+Forsøk på å slette stacken manuelt i CloudFormation og deploye på nytt.
 
 
 ## Krav til leveransen
