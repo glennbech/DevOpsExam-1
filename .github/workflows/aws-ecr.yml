@@ -26,7 +26,7 @@ jobs:
     - name: Build and Push to ECR
       if: github.ref == 'refs/heads/main'
       env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        ECR_REGISTRY: 244530008913.dkr.ecr.eu-west-1.amazonaws.com/kandidat2010ecr
         ECR_REPOSITORY: kandidat2010ecr
         IMAGE_TAG: ${{ github.sha }}
       run: |
