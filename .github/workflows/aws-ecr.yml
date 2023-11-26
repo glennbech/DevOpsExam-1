@@ -21,7 +21,6 @@ jobs:
         aws-region: eu-west-1
 
     - name: Login to Amazon ECR
-      if: github.ref == 'refs/heads/main'
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: Build and Push to ECR
