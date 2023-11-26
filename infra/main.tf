@@ -1,3 +1,5 @@
+data "aws_caller_identity" "current" {} #setsCurrent
+
 resource "aws_apprunner_service" "service" {
   service_name = "kandidat2010"
 
