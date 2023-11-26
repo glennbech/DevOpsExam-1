@@ -1,9 +1,15 @@
 resource "aws_apprunner_service" "service" {
-  service_name = "kjell-is-king"
+  service_name = "kandidat2010"
 
   instance_configuration {
     instance_role_arn = aws_iam_role.role_for_apprunner_service.arn
   }
+
+    instance_configuration {
+      instance_role_arn = aws_iam_role.role_for_apprunner_service.arn
+      cpu = "256" # Reduced CPU
+      memory = "1024" # Reduced Memory
+    }
 
   source_configuration {
     authentication_configuration {
@@ -13,7 +19,7 @@ resource "aws_apprunner_service" "service" {
       image_configuration {
         port = "8080"
       }
-      image_identifier      = "244530008913.dkr.ecr.eu-west-1.amazonaws.com/kjell:latest"
+      image_identifier      = "${data.aws_caller_identity.current.account_id}.dkr.ecr.eu-west-1.amazonaws.com/kjell:latest"
       image_repository_type = "ECR"
     }
     auto_deployments_enabled = true
