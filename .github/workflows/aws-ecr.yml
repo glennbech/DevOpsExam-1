@@ -37,6 +37,7 @@ jobs:
      
       deploy-with-terraform:
         needs: [build-and-deploy]
+        if: github.ref == 'refs/heads/main'
         runs-on: ubuntu-latest
 
         steps:
