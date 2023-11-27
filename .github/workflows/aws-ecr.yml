@@ -68,6 +68,10 @@ jobs:
           TF_VAR_apprunner_name: kandidat2010
           TF_VAR_apprunner_role: kandidat2010role
           TF_VAR_policy_name: kandidat2010policy
+          TF_VAR_cloudwatch_namespace: 2010namespace
+          TF_VAR_cloudwatch_step: 10s
+          TF_VAR_dashboard_name: 2010dashboard
+
 
 
 

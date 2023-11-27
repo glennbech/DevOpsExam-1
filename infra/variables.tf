@@ -18,4 +18,16 @@ variable "policy_name" {
   type = string
 }
 
+variable "cloudwatch_namespace" {
+  description = "CloudWatch namespace for metrics"
+  type = string
+}
+
+variable "dashboard_name" {
+  description = "Name of the dashboard"
+  type = string
+}
+
+
+
 
