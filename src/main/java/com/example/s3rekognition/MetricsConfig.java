@@ -4,13 +4,11 @@ import io.micrometer.cloudwatch2.CloudWatchConfig;
 import io.micrometer.cloudwatch2.CloudWatchMeterRegistry;
 import io.micrometer.core.instrument.Clock;
 import io.micrometer.core.instrument.MeterRegistry;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.cloudwatch.CloudWatchAsyncClient;
 
-import java.time.Duration;
 import java.util.Map;
 
 @Configuration
@@ -18,7 +16,9 @@ public class MetricsConfig {
 
     private String cloudWatchNameSpace = "2010namespace";
 
-    private String cloudWatchStep = "60";
+    private String cloudWatchStep = "60s";
+
+    private boolean cloudWatchEnabled = true;
 
 
     @Bean
@@ -43,7 +43,10 @@ public class MetricsConfig {
         return new CloudWatchConfig() {
             private Map<String, String> configuration = Map.of(
                     "cloudwatch.namespace", cloudWatchNameSpace,
-                    "cloudwatch.step", cloudWatchStep);
+                    "cloudwatch.step", cloudWatchStep,
+                    "cloudwatch.enabled", String.valueOf(cloudWatchEnabled)
+            );
+
 
             @Override
             public String get(String key) {
