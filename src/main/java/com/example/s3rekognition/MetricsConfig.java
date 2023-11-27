@@ -16,11 +16,9 @@ import java.util.Map;
 @Configuration
 public class MetricsConfig {
 
-    @Value("${management.metrics.export.cloudwatch.namespace}")
-    private String cloudWatchNameSpace;
+    private String cloudWatchNameSpace = "2010namespace";
 
-    @Value("${management.metrics.export.cloudwatch.step}")
-    private String cloudWatchStep;
+    private String cloudWatchStep = "60";
 
 
     @Bean
@@ -52,7 +50,11 @@ public class MetricsConfig {
                 return configuration.get(key);
             }
 
+
+
         };
+
+
     }
 
 }
