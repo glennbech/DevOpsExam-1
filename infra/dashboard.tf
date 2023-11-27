@@ -10,18 +10,19 @@ resource "aws_cloudwatch_dashboard" "main" {
       "width": 12,
       "height": 6,
       "properties": {
+
         "metrics": [
           [
             "${var.dashboard_name}",
-            "account_count.value"
+            "ppe.violation.person.count"
           ]
         ],
-        "period": 300,
-        "stat": "Maximum",
+        "period": 600,
+        "stat": "Average",
         "region": "eu-west-1",
-        "title": "Total number of accounts"
+        "title": "Number of people in images with violations"
       }
-    }
+    },
   ]
 }
 
