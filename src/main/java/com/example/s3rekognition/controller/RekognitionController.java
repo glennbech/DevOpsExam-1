@@ -1,5 +1,6 @@
 package com.example.s3rekognition.controller;
 
+import com.amazonaws.auth.InstanceProfileCredentialsProvider;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.rekognition.AmazonRekognition;
 import com.amazonaws.services.rekognition.AmazonRekognitionClientBuilder;
@@ -34,9 +35,19 @@ public class RekognitionController implements ApplicationListener<ApplicationRea
 
     //Token check
     public RekognitionController() {
-        this.s3Client = AmazonS3ClientBuilder.standard().withRegion(Regions.EU_WEST_1).build();
-        this.rekognitionClient = AmazonRekognitionClientBuilder.standard().withRegion(Regions.EU_WEST_1).build();
+        InstanceProfileCredentialsProvider credentialsProvider = InstanceProfileCredentialsProvider.getInstance();
+
+        this.s3Client = AmazonS3ClientBuilder.standard()
+                .withCredentials(credentialsProvider)
+                .withRegion(Regions.EU_WEST_1)
+                .build();
+
+        this.rekognitionClient = AmazonRekognitionClientBuilder.standard()
+                .withCredentials(credentialsProvider)
+                .withRegion(Regions.EU_WEST_1)
+                .build();
     }
+
 
 
     /**
