@@ -64,6 +64,13 @@ jobs:
         run: terraform apply -auto-approve -input=false
         working-directory: ./infra
 
+        env:
+          VAR_ecr_uri: 244530008913.dkr.ecr.eu-west-1.amazonaws.com/kandidat2010ecr:latest
+          VAR_apprunner_name: kandidat2010
+          VAR_apprunner_role: AppRunnerECRAccessRole2010
+          VAR_policy_name: 2010policy
+
+
 
 
 

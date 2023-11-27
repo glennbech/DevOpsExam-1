@@ -1,4 +1,3 @@
-data "aws_caller_identity" "current" {} #setsCurrent
 
 resource "aws_apprunner_service" "service" {
   service_name = var.apprunner_name
@@ -15,13 +14,13 @@ resource "aws_apprunner_service" "service" {
 
   source_configuration {
     authentication_configuration {
-      access_role_arn = "arn:aws:iam::244530008913:role/service-role/AppRunnerECRAccessRole"
+      access_role_arn = "arn:aws:iam::244530008913:role/service-role/AppRunnerECRAccessRole2010"
     }
     image_repository {
       image_configuration {
         port = "8080"
       }
-      image_identifier      = "${data.aws_caller_identity.current.account_id}.dkr.ecr.eu-west-1.amazonaws.com/kjell:latest"
+      image_identifier      = var.ecr_uri
       image_repository_type = "ECR"
     }
     auto_deployments_enabled = true
@@ -29,7 +28,7 @@ resource "aws_apprunner_service" "service" {
 }
 
 resource "aws_iam_role" "role_for_apprunner_service" {
-  name = var.policy_name
+  name = var.apprunner_role
   assume_role_policy = data.aws_iam_policy_document.assume_role.json
 }
 
