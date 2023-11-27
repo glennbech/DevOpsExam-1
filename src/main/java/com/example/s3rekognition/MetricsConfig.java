@@ -31,10 +31,9 @@ public class MetricsConfig {
 
     @Bean
     public MeterRegistry getMeterRegistry() {
-        CloudWatchConfig cloudWatchConfig = setupCloudWatchConfig();
         return
                 new CloudWatchMeterRegistry(
-                        cloudWatchConfig,
+                        setupCloudWatchConfig(),
                         Clock.SYSTEM,
                         cloudWatchAsyncClient());
     }
@@ -47,17 +46,10 @@ public class MetricsConfig {
                     "cloudwatch.enabled", String.valueOf(cloudWatchEnabled)
             );
 
-
             @Override
             public String get(String key) {
                 return configuration.get(key);
             }
-
-
-
         };
-
-
     }
-
 }
