@@ -31,6 +31,7 @@ public class RekognitionController implements ApplicationListener<ApplicationRea
     private final AmazonS3 s3Client;
     private final AmazonRekognition rekognitionClient;
 
+
     private static final Logger logger = Logger.getLogger(RekognitionController.class.getName());
 
     //Token check
