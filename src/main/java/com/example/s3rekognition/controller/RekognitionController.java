@@ -31,6 +31,7 @@ public class RekognitionController implements ApplicationListener<ApplicationRea
     private final AmazonRekognition rekognitionClient;
 
 
+
     private static final Logger logger = Logger.getLogger(RekognitionController.class.getName());
 
     //Token check
@@ -47,6 +48,10 @@ public class RekognitionController implements ApplicationListener<ApplicationRea
                 .withRegion(Regions.EU_WEST_1)
                 .build();
     }
+
+
+
+
 
 
 
@@ -88,13 +93,8 @@ public class RekognitionController implements ApplicationListener<ApplicationRea
             DetectProtectiveEquipmentResult result = rekognitionClient.detectProtectiveEquipment(request);
 
             // If any person on an image lacks PPE on the face, it's a violation of regulations
-            boolean violation = isViolation(result);
 
-            // if (violation) {
-            //    int personCount = result.getPersons().size();
-            //    violationPersonCountSummary.record(personCount);
-            //    System.out.println(violationPersonCountSummary + "Number of people in images with violation");
-            // }
+            boolean violation = isViolation(result);
 
             logger.info("scanning " + image.getKey() + ", violation result " + violation);
             // Categorize the current image as a violation or not.

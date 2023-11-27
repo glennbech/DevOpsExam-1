@@ -6,10 +6,11 @@ import io.micrometer.core.instrument.Clock;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
+import software.amazon.awssdk.http.nio.netty.NettyNioAsyncHttpClient;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.cloudwatch.CloudWatchAsyncClient;
 
+import java.time.Duration;
 import java.util.Map;
 
 @Configuration
@@ -25,8 +26,15 @@ public class MetricsConfig {
 
     @Bean
     public CloudWatchAsyncClient cloudWatchAsyncClient() {
-        return CloudWatchAsyncClient.builder().region(Region.EU_WEST_1)
-                .credentialsProvider(DefaultCredentialsProvider.create())
+        return CloudWatchAsyncClient.builder()
+                .region(Region.EU_WEST_1)
+                .httpClientBuilder(NettyNioAsyncHttpClient.builder()
+                        .maxConcurrency(200)
+                        .connectionMaxIdleTime(Duration.ofMinutes(1))
+                        .connectionAcquisitionTimeout(Duration.ofSeconds(60))
+                        .connectionTimeout(Duration.ofSeconds(60))
+                        .writeTimeout(Duration.ofSeconds(60))
+                        .readTimeout(Duration.ofSeconds(60)))
                 .build();
     }
 
