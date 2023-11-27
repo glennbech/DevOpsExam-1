@@ -1,7 +1,7 @@
 data "aws_caller_identity" "current" {} #setsCurrent
 
 resource "aws_apprunner_service" "service" {
-  service_name = "kandidat2010"
+  service_name = var.apprunner_name
 
   instance_configuration {
     instance_role_arn = aws_iam_role.role_for_apprunner_service.arn
