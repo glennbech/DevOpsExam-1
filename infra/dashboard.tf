@@ -12,7 +12,7 @@ resource "aws_cloudwatch_dashboard" "main" {
           "metrics": [
             ["${var.dashboard_name}", "ppe.violation.person.count"]
           ],
-          "period": 600,
+          "period": 300,
           "stat": "Average",
           "region": "eu-west-1",
           "title": "Number of people in images with violations"
