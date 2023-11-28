@@ -10,7 +10,6 @@ resource "aws_cloudwatch_dashboard" "main" {
       "width": 12,
       "height": 6,
       "properties": {
-
         "metrics": [
           [
             "${var.dashboard_name}",
@@ -25,16 +24,16 @@ resource "aws_cloudwatch_dashboard" "main" {
     },
     {
       "type": "metric",
-      "x": 0,
+      "x": 12, // Adjusted position
       "y": 0,
       "width": 12,
       "height": 6,
-      "properties":
-    {
+      "properties": {
         "metrics": [
-          "${var.dashboard_name}",
-          "img.size.avg"
-        ]
+          [
+            "${var.dashboard_name}",
+            "img.size.avg"
+          ]
         ],
         "period": 300,
         "stat": "Average",
@@ -44,7 +43,5 @@ resource "aws_cloudwatch_dashboard" "main" {
     }
   ]
 }
-
 DASHBOARD
-
 }
