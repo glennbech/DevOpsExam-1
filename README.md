@@ -6,6 +6,19 @@ Forsøk på å slette stacken manuelt i CloudFormation og deploye på nytt.
 
 # Oppgave 1a)
 Fjernet hardkodingen av bucketnavnet og la til en miljøvariabel som hentet ut "kandidat2010". 
+```
+try:
+    BUCKET_NAME = os.environ['BUCKET_NAME']
+except KeyError:
+    raise ValueError("Provide the environment variable <BUCKET_NAME>.")
+
+```
+I template.yml:
+```
+Environment:
+        Variables:
+          BUCKET_NAME: kandidat2010
+```
 Opprettet en worklow: sam_python.yml.
 
 # - name: Deploy SAM Application
@@ -161,38 +174,14 @@ Igjen er også en forutsetning er AWS_ACCESS_KEY_ID og AWS_SECRET_ACCESS_KEY er 
 
 # Oppgave 4. Feedback
 
-¨
-
-Dere skal skrive en kort begrunnelse for hvorfor dere har valgt måleinstrumentene dere har gjort, og valgene må  være relevante.
-Eksempelvis vil en en teller som øker hver gang en metode blir kalt ikke bli vurdert som en god besvarelse, dette fordi denne
-metrikkene allerede leveres av Spring Boot/Actuator.
-
-
-Fikk ikke metrics til å fungere slik som jeg ønsket. Usikker på hvor feilen ligger:
+Dashboardet hentet ikke ut dataen slik jeg ønsket.
 
 Det jeg ønsket - slik som du ser i RekognitionController tilhørende dashboard.tf: legge til funksjonalitet i "scan-ppe" med 
 DistributionSummary metric for å sjekke, gjennomsnittlig, hvor mange personer det er i bilder med "violations". Er det ukult med 
-utstyr? Blir de påvirket av folk rundt seg? Fikk ikke opp metrics på dashboardet. 
+utstyr? Blir de påvirket av folk rundt seg? Analyse av arbeidsmiljø:-)
 
 La også til et nytt endepunkt: 
 
-
-### Vurderingskriterier
-
-* Hensikten med å utvide kodebasen er å få flere naturlige steder å legge inn måleinstrumenter. Det gis ikke poeng for et stort kodevolum, men en god besvarelse vil legge til virkelig og nyttig funksjonalitet.
-* En god besvarelse registrer både tekniske, og foretningsmessig metrikker.
-* En god besvarelse bør bruke minst tre ulike måleinstrumenter på en god og relevant måte.
-
-### B. CloudWatch Alarm og Terraform moduler
-
-Lag en CloudWatch-alarm som sender et varsel på Epost dersom den utløses.Dere velger selv kriteriet for kriterier til at alarmen
-skal løses ut, men dere  må skrive en kort redgjørelse for valget.
-
-Rakk ikke dette.
-
-Alarmen skal lages ved hjelp av Terraformkode. Koden skal lages som en separat Terraform modul. Legg vekt på å unngå
-hardkoding  av verdier i modulen for maksimal gjenbrukbarhet. Pass samtidig på at brukere av modulen ikke må sette mange
-variabler når de inkluderer den i koden sin.
 
 # Oppgave 5
 #A. Kontinuerlig Integrering
@@ -204,11 +193,10 @@ Det er heller ingen begrensning på hvor ofte en kodesammenslåing kan gjøres p
 Det at kodeendringer blir integrert og testet automatisk og regelmessig fører til at problemer i koden oppdages tidligere i utviklingsprossessen.
 En annen ting er det faktum at KI fremmer en praksis med små og hyppige oppdateringer til kodebasen, slik at det reduserer risikoen for komplekse merge-konflikter. 
 
-Rent i praksis jobber man i Github med et repository der kildekoden lagres.
+Rent i praksis jobber man i Github ut ifra et repository der kildekoden lagres.
 Det opprettes egne brancher for medlemmene i utviklingsteamet som til slutt merges sammen.
 Ved bruk av verktøy som Github Actions, slik som i vår oppgave, kan hele teamet bli varslet når en test eller build feiler.
 Slik kan tidlig oppdaging av feil føre til høyere kodekvalitet. Det settes også gjerne kodestandarder som teamet må følge for mer ryddig integrasjon ved merging.  
-
 
 #B. Sammenligning av Scrum/Smidig og DevOps fra et Utviklers Perspektiv
 
