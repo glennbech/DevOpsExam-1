@@ -1,4 +1,4 @@
-![workflow-ecr-terraform](https://github.com/varunthileepan/devopsexam/actions/workflows/aws_ecr.yml/badge.svg)
+![workflow-ecr-terraform](https://github.com/varunthileepan/devopsexam/actions/workflows/aws-ecr.yml/badge.svg)
 ![workflow-aws-python](https://github.com/varunthileepan/devopsexam/actions/workflows/sam_python.yml/badge.svg)
 
 # Eksamen PGR301 2023
