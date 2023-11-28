@@ -42,6 +42,28 @@ public class RekognitionController implements ApplicationListener<ApplicationRea
             .description("Distribution of person count in images with PPE violations")
             .register(Metrics.globalRegistry);
 
+    /** This endpoint takes an S3 bucketname in an argument, scans all the files in
+     * the bucket and returns an average of sizes.
+     * @param bucketName
+     * @return
+     */
+
+    @GetMapping(value = "/monitor-image-size", consumes = "*/*", produces = "application/json")
+    @ResponseBody
+    public ResponseEntity<Double> monitorImageSize(@RequestParam String bucketName) {
+        ListObjectsV2Result imageList = s3Client.listObjectsV2(bucketName);
+        List<Double> imageSizes = new ArrayList<>();
+
+        for (S3ObjectSummary image : imageList.getObjectSummaries()) {
+            double sizeInKb = image.getSize() / 1024.0;
+            imageSizes.add(sizeInKb);
+        }
+
+        double averageSize = imageSizes.stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
+        return ResponseEntity.ok(averageSize);
+    }
+
+
     /**
      * This endpoint takes an S3 bucket name in as an argument, scans all the
      * Files in the bucket for Protective Gear Violations.
