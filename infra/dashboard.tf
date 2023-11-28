@@ -13,32 +13,32 @@ resource "aws_cloudwatch_dashboard" "main" {
         "metrics": [
           [
             "${var.dashboard_name}",
-            "ppe.violation.person.count"
+            "ppe.violation.person.count",
+            { "stat": "Sum", "period": 300 }
           ]
         ],
         "period": 600,
-        "stat": "Average",
+        "stat": "Average"
         "region": "eu-west-1",
-        "title": "Number of people in images with violations"
+        "title": "PPE Scan Count"
       }
     },
     {
       "type": "metric",
-      "x": 12, // Adjusted position
-      "y": 0,
+      "x": 0,
+      "y": 6,
       "width": 12,
       "height": 6,
       "properties": {
         "metrics": [
           [
             "${var.dashboard_name}",
-            "img.size.avg"
-          ]
+            "image.size.avg",
+            { "stat": "Average", "period": 600 }
+          ],
         ],
-        "period": 300,
-        "stat": "Average",
         "region": "eu-west-1",
-        "title": "Average Image Size in S3 Bucket"
+        "title": "Image Size Metrics"
       }
     }
   ]
