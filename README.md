@@ -229,6 +229,10 @@ stand til å gjøre API kall mot AWS Rekognition og lese fra S3.
 * Se på dokumentasjonen til aws_apprunner_service ressursen, og reduser CPU til 256, og Memory til 1024 (defaultverdiene
   er høyere)
 
+Endret hardkoding av servicenavn, policy, ecr-uri og apprunner-service rolle. Kunne nok endret port og.
+
+Det tillates ikke å redusere CPU til 256 og Memory til 1024 i Windows - kun i linux. 
+
 ## B. Terraform i GitHub Actions
 
 * Utvid din GitHub Actions workflow som lager et Docker image, til også å kjøre terraformkoden
@@ -236,6 +240,8 @@ stand til å gjøre API kall mot AWS Rekognition og lese fra S3.
 * Du må lege til Terraform provider og backend-konfigurasjon. Dette har Kjell glemt. Du kan bruke samme S3 bucket
   som vi har brukt til det formålet i øvingene.
 * Beskriv også hvilke endringer, om noen, sensor må gjøre i sin fork, GitHub Actions workflow eller kode for å få denne til å kjøre i sin fork.
+
+Koden kjører nok uten at sensor endrer noe - men TF_VAR definerer variablene som lages ved deployment. 
 
 # Oppgave 4. Feedback
 
@@ -263,6 +269,17 @@ Dere skal skrive en kort begrunnelse for hvorfor dere har valgt måleinstrumente
 Eksempelvis vil en en teller som øker hver gang en metode blir kalt ikke bli vurdert som en god besvarelse, dette fordi denne
 metrikkene allerede leveres av Spring Boot/Actuator.
 
+Her kom det noen problemer: fikk "deployed successfully" i apprunner, men klarte ikke å connecte til endepunktet. 
+
+
+Det jeg ønsket - slik som du ser i RekognitionController og dashboard.tf: legge til funksjonalitet i "scan-ppe" med 
+DistributionSummary metric for å sjekke, gjennomsnittlig, hvor mange personer det er i bilder med "violations". Er det ukult med 
+utstyr? Blir de påvirket av folk rundt seg? I'll never know.
+
+La også til et nytt endepunkt: 
+
+
+
 ### Vurderingskriterier
 
 * Hensikten med å utvide kodebasen er å få flere naturlige steder å legge inn måleinstrumenter. Det gis ikke poeng for et stort kodevolum, men en god besvarelse vil legge til virkelig og nyttig funksjonalitet.
@@ -284,6 +301,7 @@ variabler når de inkluderer den i koden sin.
 
 ### A. Kontinuerlig Integrering
 
+
 Forklar hva kontinuerlig integrasjon (CI) er og diskuter dens betydning i utviklingsprosessen. I ditt svar,
 vennligst inkluder:
 
@@ -301,19 +319,12 @@ leveransetempoet i utvikling av programvare.
 
 1. **Scrum/Smidig Metodikk:**
 
-- Beskriv kort, hovedtrekkene i Scrum metodikk og dens tilnærming til programvareutvikling.
-- Diskuter eventuelle utfordringer og styrker ved å bruke Scrum/Smidig i programvareutviklingsprosjekter.
 
 2. **DevOps Metodikk:**
 
-- Forklar grunnleggende prinsipper og praksiser i DevOps, spesielt med tanke på integrasjonen av utvikling og drift.
-- Analyser hvordan DevOps kan påvirke kvaliteten og leveransetempoet i programvareutvikling.
-- Reflekter over styrker og utfordringer knyttet til bruk av DevOps i utviklingsprosjekter.
 
 3. **Sammenligning og Kontrast:**
 
-- Sammenlign Scrum/Smidig og DevOps i forhold til deres påvirkning på programvarekvalitet og leveransetempo.
-- Diskuter hvilke aspekter ved hver metodikk som kan være mer fordelaktige i bestemte utviklingssituasjoner.
 
 #### Forventninger til Besvarelsen
 

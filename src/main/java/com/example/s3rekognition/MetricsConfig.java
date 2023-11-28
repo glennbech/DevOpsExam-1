@@ -6,11 +6,10 @@ import io.micrometer.core.instrument.Clock;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import software.amazon.awssdk.http.nio.netty.NettyNioAsyncHttpClient;
+import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.cloudwatch.CloudWatchAsyncClient;
 
-import java.time.Duration;
 import java.util.Map;
 
 @Configuration
@@ -18,30 +17,18 @@ public class MetricsConfig {
 
     //new check
     private String cloudWatchNameSpace = "2010namespace";
-
-    private String cloudWatchStep = "60s";
-
     private boolean cloudWatchEnabled = true;
 
 
     @Bean
     public CloudWatchAsyncClient cloudWatchAsyncClient() {
-        return CloudWatchAsyncClient.builder()
-                .region(Region.EU_WEST_1)
-                .httpClientBuilder(NettyNioAsyncHttpClient.builder()
-                        .maxConcurrency(200)
-                        .connectionMaxIdleTime(Duration.ofMinutes(1))
-                        .connectionAcquisitionTimeout(Duration.ofSeconds(60))
-                        .connectionTimeout(Duration.ofSeconds(60))
-                        .writeTimeout(Duration.ofSeconds(60))
-                        .readTimeout(Duration.ofSeconds(60)))
+        return CloudWatchAsyncClient.builder().region(Region.EU_WEST_1).credentialsProvider(DefaultCredentialsProvider.create())
                 .build();
     }
 
     @Bean
     public MeterRegistry getMeterRegistry() {
-        return
-                new CloudWatchMeterRegistry(
+        return new CloudWatchMeterRegistry(
                         setupCloudWatchConfig(),
                         Clock.SYSTEM,
                         cloudWatchAsyncClient());
@@ -51,7 +38,6 @@ public class MetricsConfig {
         return new CloudWatchConfig() {
             private Map<String, String> configuration = Map.of(
                     "cloudwatch.namespace", cloudWatchNameSpace,
-                    "cloudwatch.step", cloudWatchStep,
                     "cloudwatch.enabled", String.valueOf(cloudWatchEnabled)
             );
 

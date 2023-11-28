@@ -2,7 +2,11 @@
 resource "aws_apprunner_service" "service" {
   service_name = var.apprunner_name
 
-  source_configuration {
+  instance_configuration {
+    instance_role_arn = aws_iam_role.role_for_apprunner_service.arn
+  }
+
+    source_configuration {
     authentication_configuration {
       access_role_arn = "arn:aws:iam::244530008913:role/service-role/AppRunnerECRAccessRole"
     }
@@ -16,6 +20,8 @@ resource "aws_apprunner_service" "service" {
     auto_deployments_enabled = true
   }
 }
+
+
 
 resource "aws_iam_role" "role_for_apprunner_service" {
   name = var.apprunner_role
