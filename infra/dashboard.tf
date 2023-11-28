@@ -22,7 +22,7 @@ resource "aws_cloudwatch_dashboard" "main" {
         "region": "eu-west-1",
         "title": "Number of people in images with violations"
       }
-    }
+    },
     {
       "type": "metric",
       "x": 0,
@@ -33,15 +33,13 @@ resource "aws_cloudwatch_dashboard" "main" {
         "metrics": [
 
           "${var.dashboard_name}",
-          "Average Image Size"
+          "img.size.avg"
         ],
         "period": 300,
         "stat": "Average",
         "title": "Average Image Size in S3 Bucket"
       }
     }
-  ]
-
   ]
 }
 
