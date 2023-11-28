@@ -199,7 +199,7 @@ Slik får man høyere produktkvalitet. I skrivende stund legger jeg merke til at
 
 Mitt overordnede syn på Scrum er at det effektiviserer team-arbeid, gjennom regelmessig kommunikasjon og planlegging av sprinter. DevOps er mer fokusert på å effektivisere og automatisere utviklingsprosessene slikt at vi får et rask leveransetempo med kontinuerlig overvåking og testing. Kommunikasjonen er også her regelmessig og hyppig, men hovedsaklig gjennom kodeleveringer. En kombinasjon av metodene bør ikke være utenkelig og jeg ser ikke nødvendigvis på de som helt uavhengige metoder for utvikling. 
 
-#C
+#C.
 Feedback er essensielt for å sikre at funksjonalitet møter brukernes behov. 
 Blant former har vi intervjuer, spørreundersøkelser eller “overvåkning” av brukernes interaksjon med applikasjonen. 
 Som en del av kontinuerlig integrasjon er feedback noe som bidrar til kontinuerlig forbedring i DevOps. 
