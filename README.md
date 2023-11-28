@@ -173,8 +173,8 @@ Igjen er også en forutsetning er AWS_ACCESS_KEY_ID og AWS_SECRET_ACCESS_KEY er 
 Dashboardet hentet ikke ut dataen slik jeg ønsket.
 
 Det jeg ønsket - slik som du ser i RekognitionController tilhørende dashboard.tf: legge til funksjonalitet i "scan-ppe" med 
-DistributionSummary metric for å sjekke, gjennomsnittlig, hvor mange personer det er i bilder med "violations". Er det ukult med 
-utstyr? Blir de påvirket av folk rundt seg? Analyse av arbeidsmiljø:-)
+DistributionSummary metric for å sjekke, hvor mange personer det er i bilder med "violations". Er det ukult med 
+utstyr? Blir de påvirket av folk rundt seg? I'll never know. Analyse av arbeidsmiljø:-)
 
 # Oppgave 5
 #A. Kontinuerlig Integrering
