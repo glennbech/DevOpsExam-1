@@ -204,5 +204,4 @@ Feedback er essensielt for å sikre at funksjonalitet møter brukernes behov.
 Blant former har vi intervjuer, spørreundersøkelser eller “overvåkning” av brukernes interaksjon med applikasjonen. 
 Som en del av kontinuerlig integrasjon er feedback noe som bidrar til kontinuerlig forbedring i DevOps. 
 
-Med feedback som virkemiddel må også utviklingsteamet være forberedt på å gjøre justeringer. Feedback på kode kan både gjelde å fikse bugs, å legge til ekstra funksjoner eller å endre brukergrensesnittet. En forutsetning er derfor at det må gjenspeiles i fleksibel kode og et fleksibelt arbeidsmiljø. Ikke bare muliggjør feedback loops for rask feilklarering, men det forbereder oss også på lignende feil i fremtiden. På denne måten fører feedback til et aktivt arbeidsmiljø i stadig utvikling.
-
+Med feedback som virkemiddel må også utviklingsteamet være forberedt på å gjøre justeringer. Feedback på kode kan både gjelde å fikse bugs, å legge til ekstra funksjoner eller å endre brukergrensesnittet. En forutsetning er derfor at det må gjenspeiles i fleksibel kode og et fleksibelt arbeidsmiljø. Ikke bare muliggjør feedback loops for rask feilklarering, men det forbereder oss også på lignende feil i fremtiden. På denne måten hører feedback til et aktivt arbeidsmiljø i stadig utvikling.
