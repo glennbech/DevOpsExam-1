@@ -37,6 +37,7 @@ resource "aws_cloudwatch_dashboard" "main" {
         ],
         "period": 300,
         "stat": "Average",
+        "region": "eu-west-1",
         "title": "Average Image Size in S3 Bucket"
       }
     }
