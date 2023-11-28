@@ -29,11 +29,12 @@ resource "aws_cloudwatch_dashboard" "main" {
       "y": 0,
       "width": 12,
       "height": 6,
-      "properties": {
+      "properties":
+    {
         "metrics": [
-
           "${var.dashboard_name}",
           "img.size.avg"
+        ]
         ],
         "period": 300,
         "stat": "Average",
