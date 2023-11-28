@@ -194,11 +194,8 @@ Alarmen skal lages ved hjelp av Terraformkode. Koden skal lages som en separat T
 hardkoding  av verdier i modulen for maksimal gjenbrukbarhet. Pass samtidig på at brukere av modulen ikke må sette mange
 variabler når de inkluderer den i koden sin.
 
-# Oppgave 4. Drøfteoppgaver
-
-## Det Første Prinsippet - Flyt
-
-### A. Kontinuerlig Integrering
+# Oppgave 5
+#A. Kontinuerlig Integrering
 DevOps definerer kontinuerlig integrasjon som en viktig prosess eller et sett med prosesser som er definert og utført som en del av en rørledning kjent som "Build Pipeline" eller "CI Pipeline." 
 DevOps-praksisen gir utviklingsteamet et enkelt versjonsstyringsystem som tilrettelegger for parallell jobbing.  
 Ved kontinuerlig integrering kan man slå sammen individuelle utviklerkoder i en “hovedkopi” av koden for hovedgrenen som håndterer versjonskontroll. 
@@ -213,7 +210,7 @@ Ved bruk av verktøy som Github Actions, slik som i vår oppgave, kan hele teame
 Slik kan tidlig oppdaging av feil føre til høyere kodekvalitet. Det settes også gjerne kodestandarder som teamet må følge for mer ryddig integrasjon ved merging.  
 
 
-### B. Sammenligning av Scrum/Smidig og DevOps fra et Utviklers Perspektiv
+#B. Sammenligning av Scrum/Smidig og DevOps fra et Utviklers Perspektiv
 
 Scrum har en fleksibel og iterativ tilnærming til programvareutvikling og det legges vekt på regelmessige tilbakemeldinger og tilpassede endringer.
 Det jobbes i korte sprinter – slik at man ofte kan evaluere og endre basert på feedback fra kunde/brukere.
@@ -223,14 +220,7 @@ I skrivende stund legger jeg merke til at det egentlig har mye til felles med De
 DevOps er nok mer fokusert på å effektivisere og automatisere utviklingsprosessene. 
 En kombinasjon av metodene bør ikke være utenkelig og jeg ser ikke nødvendigvis på de som motsettende metoder for utvikling.
 
-
-
-#### Forventninger til Besvarelsen
-
-- Din analyse bør være balansert, kritisk og godt underbygget med eksempler eller teoretiske argumenter.
-- Reflekter over egne erfaringer eller hypotetiske scenarier for å støtte dine argumenter og konklusjoner.
-
-### C. Det Andre Prinsippet - Feedback
+#C
 Feedback er essensielt for å sikre at funksjonalitet møter brukernes behov. 
 Blant former har vi intervjuer, spørreundersøkelser eller “overvåkning” av brukernes interaksjon med applikasjonen. 
 Det er også, i tillegg til KI, noe som bidrar til kontinuerlig forbedring i DevOps.  
