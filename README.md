@@ -1,9 +1,5 @@
 # Eksamen PGR301 2023
 
-Litt deploymentproblemer:
-Resource handler returned message: "null (Service: S3, Status Code: 0, Request ID: null)" (RequestToken: e75e6e91-4738-10c7-56bd-9cc969a4184b, HandlerErrorCode: AlreadyExists)
-Forsøk på å slette stacken manuelt i CloudFormation og deploye på nytt.
-
 # Oppgave 1a)
 Fjernet hardkodingen av bucketnavnet og la til en miljøvariabel som hentet ut "kandidat2010". 
 ```
@@ -170,7 +166,7 @@ Fikk omsider endret CPU og memory - dette krevde en nyere versjon i provider.tf.
 Koden kjører nok uten at sensor endrer noe ved en fork, men for å endre til egne verdier slik at man får egen service og tilhørende,
 må sensor endre navnene på variablene i aws_evr.yml filen. 
 
-Igjen er også en forutsetning er AWS_ACCESS_KEY_ID og AWS_SECRET_ACCESS_KEY er konfiguert i IAM og koblet opp mot Github.
+Igjen er også en forutsetning er AWS_ACCESS_KEY_ID og AWS_SECRET_ACCESS_KEY er konfiguert i IAM.
 
 # Oppgave 4. Feedback
 
@@ -179,9 +175,6 @@ Dashboardet hentet ikke ut dataen slik jeg ønsket.
 Det jeg ønsket - slik som du ser i RekognitionController tilhørende dashboard.tf: legge til funksjonalitet i "scan-ppe" med 
 DistributionSummary metric for å sjekke, gjennomsnittlig, hvor mange personer det er i bilder med "violations". Er det ukult med 
 utstyr? Blir de påvirket av folk rundt seg? Analyse av arbeidsmiljø:-)
-
-La også til et nytt endepunkt: 
-
 
 # Oppgave 5
 #A. Kontinuerlig Integrering
@@ -202,18 +195,15 @@ Slik kan tidlig oppdaging av feil føre til høyere kodekvalitet. Det settes ogs
 
 Scrum har en fleksibel og iterativ tilnærming til programvareutvikling og det legges vekt på regelmessige tilbakemeldinger og tilpassede endringer.
 Det jobbes i korte sprinter – slik at man ofte kan evaluere og endre basert på feedback fra kunde/brukere.
-Slik får man høyere produktkvalitet. 
-I skrivende stund legger jeg merke til at det egentlig har mye til felles med DevOps – hvertfall sett i motsetning til tiden før Scrum, hvor man gjerne hadde lange prosjekter med en lanseringsdato uten særlig feedback underveis. 
+Slik får man høyere produktkvalitet. I skrivende stund legger jeg merke til at det egentlig har mye til felles med DevOps – hvertfall sett i motsetning til Waterfall metodikk som ofte ble anvendt før Scrum, hvor man gjerne hadde lange prosjekter med en lanseringsdato uten særlig feedback underveis. 
 
-DevOps er nok mer fokusert på å effektivisere og automatisere utviklingsprosessene. 
-En kombinasjon av metodene bør ikke være utenkelig og jeg ser ikke nødvendigvis på de som motsettende metoder for utvikling.
+Mitt overordnede syn på Scrum er at det effektiviserer team-arbeid, gjennom regelmessig kommunikasjon og planlegging av sprinter. DevOps er mer fokusert på å effektivisere og automatisere utviklingsprosessene slikt at vi får et rask leveransetempo med kontinuerlig overvåking og testing. Kommunikasjonen er også her regelmessig og hyppig, men gjennom kodeleveringer. En kombinasjon av metodene bør ikke være utenkelig og jeg ser ikke nødvendigvis på de som helt uavhengige metoder for utvikling. 
 
 #C
 Feedback er essensielt for å sikre at funksjonalitet møter brukernes behov. 
 Blant former har vi intervjuer, spørreundersøkelser eller “overvåkning” av brukernes interaksjon med applikasjonen. 
 Det er også, i tillegg til KI, noe som bidrar til kontinuerlig forbedring i DevOps.  
 
-Med feedback som virkemiddel må også utviklingsteamet være forberedt på å gjøre justeringer.
-Dette kan både gjelde å fikse bugs eller å legge til ekstra funksjoner. 
-Feedack kan benyttes til å fikse nåværende behov, men også verne fremtidige forventninger. 
-Det kan også benyttes til andre prosjekter, om du skulle ha noen gående.
+Med feedback som virkemiddel må også utviklingsteamet være forberedt på å gjøre justeringer. Dette kan både gjelde å fikse bugs eller å legge til ekstra funksjoner. 
+Ikke bare muliggjør feedback loops for rask feilklarering, men det forbereder oss også på lignende feil i fremtiden. Slikt fører feedback til et arbeidsmiljø i stadig utvikling.
+
