@@ -4,8 +4,6 @@ resource "aws_apprunner_service" "service" {
 
   instance_configuration {
     instance_role_arn = aws_iam_role.role_for_apprunner_service.arn
-    cpu = 256
-    memory = 1024
   }
 
     source_configuration {
@@ -23,11 +21,13 @@ resource "aws_apprunner_service" "service" {
   }
 }
 
-
-
 resource "aws_iam_role" "role_for_apprunner_service" {
   name = var.apprunner_role
   assume_role_policy = data.aws_iam_policy_document.assume_role.json
+}
+
+lifecycle {
+    create_before_destroy = true
 }
 
 
