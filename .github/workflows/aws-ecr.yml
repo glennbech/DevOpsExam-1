@@ -27,7 +27,7 @@ jobs:
       if: github.ref == 'refs/heads/main'
       env:
         ECR_REGISTRY: 244530008913.dkr.ecr.eu-west-1.amazonaws.com
-        ECR_REPOSITORY: kandidat2010ecr
+        ECR_REPOSITORY: kandidat2010ecr-sensur
         IMAGE_TAG: ${{ github.sha }}
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
