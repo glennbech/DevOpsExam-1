@@ -65,12 +65,12 @@ jobs:
 
         env:
           TF_VAR_ecr_uri: 244530008913.dkr.ecr.eu-west-1.amazonaws.com/kandidat2010ecr:latest
-          TF_VAR_apprunner_name: kandidat2010
-          TF_VAR_apprunner_role: kandidat2010role
-          TF_VAR_policy_name: kandidat2010policy
-          TF_VAR_cloudwatch_namespace: 2010namespace
+          TF_VAR_apprunner_name: kandidat2010sensur
+          TF_VAR_apprunner_role: kandidat2010rolesensur
+          TF_VAR_policy_name: kandidat2010policysensur
+          TF_VAR_cloudwatch_namespace: 2010namespace2
           TF_VAR_cloudwatch_step: 10s
-          TF_VAR_dashboard_name: 2010dashboard
+          TF_VAR_dashboard_name: 2010dashboard2
 
 
 
